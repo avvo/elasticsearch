@@ -1,11 +1,5 @@
-FROM java:openjdk-6-jre
-MAINTAINER Jeff Ching <jching@avvo.com>
+FROM docker.elastic.co/elasticsearch/elasticsearch:6.5.4
+MAINTAINER Lim Victor <vlim@avvo.com>
 
-ENV ELASTICSEARCH_VERSION 0.20.6
-
-RUN curl https://download.elastic.co/elasticsearch/elasticsearch/elasticsearch-${ELASTICSEARCH_VERSION}.tar.gz | tar -zx
-
-WORKDIR /elasticsearch-${ELASTICSEARCH_VERSION}
-
-ENTRYPOINT ["bin/elasticsearch"]
-CMD ["-f"]
+RUN elasticsearch-plugin install analysis-phonetic
+RUN elasticsearch-plugin install analysis-icu
