@@ -13,10 +13,10 @@ jobs:
       - deploy:
           command: |
             docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
-            docker build -t avvo/$CIRCLE_PROJECT_REPONAME:$ELASTICSEARCH_VERSION --build-arg PACKAGECLOUD_READ_TOKEN=$PACKAGECLOUD_READ_TOKEN .
+            docker build -t avvo/$CIRCLE_PROJECT_REPONAME:$ELASTICSEARCH_VERSION .
             docker push avvo/$CIRCLE_PROJECT_REPONAME:$ELASTICSEARCH_VERSION
           environment:
-            ELASTICSEARCH_VERSION: 6.5.4
+            ELASTICSEARCH_VERSION: 6.6.0
 
 workflows:
   version: 2
