@@ -14,9 +14,11 @@ jobs:
           command: |
             docker login -u $DOCKERHUB_USER -p $DOCKERHUB_PASS
             docker build -t avvo/$CIRCLE_PROJECT_REPONAME:$ELASTICSEARCH_VERSION .
+            docker tag avvo/$CIRCLE_PROJECT_REPONAME:$ELASTICSEARCH_VERSION avvo/$CIRCLE_PROJECT_REPONAME:latest
             docker push avvo/$CIRCLE_PROJECT_REPONAME:$ELASTICSEARCH_VERSION
+            docker push avvo/$CIRCLE_PROJECT_REPONAME:latest
           environment:
-            ELASTICSEARCH_VERSION: 6.6.0
+            ELASTICSEARCH_VERSION: 6.8.3
 
 workflows:
   version: 2
