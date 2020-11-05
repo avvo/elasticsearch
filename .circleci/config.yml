@@ -18,7 +18,7 @@ jobs:
             docker push avvo/$CIRCLE_PROJECT_REPONAME:$ELASTICSEARCH_VERSION
             docker push avvo/$CIRCLE_PROJECT_REPONAME:latest
           environment:
-            ELASTICSEARCH_VERSION: 6.8.3
+            ELASTICSEARCH_VERSION: 6.8.6
 
 workflows:
   version: 2
